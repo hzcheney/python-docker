@@ -1,3 +1,4 @@
+import random
 import mysql.connector
 import json
 from flask import Flask
@@ -7,6 +8,11 @@ app = Flask(__name__)
 @app.route('/')
 def hello_world():
   return 'Hello, Docker!'
+
+@app.route('/game')
+def game():
+  random_num = random.randint(1,10) 
+  return str(random_num)
 
 @app.route('/widgets')
 def get_widgets() :
